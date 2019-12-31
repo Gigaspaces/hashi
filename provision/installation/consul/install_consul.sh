@@ -1,6 +1,6 @@
 #!/bin/bash
 set -x
-DIRNAME=$(dirname ${BASH_SOURCE[0]})
+DIRNAME="$( cd "$(dirname "$0")" ; pwd -P )"
 
 MODE=$1
 DNS_SERVER=$2
@@ -10,7 +10,7 @@ if [[ "$MODE" != "server" ]] && [[ "$MODE" != "client" ]]; then
 fi
 
 CONSUL_VERSION=1.6.1
-curl -sSL https://releases.hashicorp.com/consul/${CONSUL_VERSION}/consul_${CONSUL_VERSION}_linux_amd64.zip > consul.zip
+curl -sSL https://releases.hashicorp.com/consul/${CONSUL_VERSION}/consul_${CONSUL_VERSION}_linux_amd64.zip > /tmp/consul.zip
 unzip /tmp/consul.zip
 sudo install consul /usr/bin/consul
 

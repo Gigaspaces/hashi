@@ -1,6 +1,6 @@
 #!/bin/bash
 set -x
-DIRNAME=$(dirname ${BASH_SOURCE[0]})
+DIRNAME="$( cd "$(dirname "$0")" ; pwd -P )"
 
 MODE=$1
 

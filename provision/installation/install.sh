@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DIRNAME=$(dirname ${BASH_SOURCE[0]})
+DIRNAME="$( cd "$(dirname "$0")" ; pwd -P )"
 . /etc/os-release
 
 if [[ "${ID}" == "amzn" ]]; then
