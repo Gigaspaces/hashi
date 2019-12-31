@@ -1,0 +1,12 @@
+# First entry in [servers] is used as the dns server therefore if we have private and public ips,
+# we need to use the private one for the DNS
+
+[servers]
+#<PublicIP1> private_ipv4=<PrivateIP1>
+#<PublicIP2>
+#<PublicIP3>
+
+[clients]
+#<PublicIP1>
+#<PublicIP2>
+#...

@@ -1,0 +1,26 @@
+---
+- hosts: servers
+  remote_user: "{{ remote_user }}"
+  tasks:
+    - name: Copy files
+      synchronize: 
+        # owner: vagrant
+        # mode: 0777
+        src: ../installation
+        dest: /tmp/
+    - name: Setup machine
+      shell: "/tmp/installation/install.sh"
+      args: 
+        chdir: "/tmp/"
+    - name: Install Consul
+      shell: "/tmp/installation/consul/install_consul.sh server {{ hostvars[groups['servers'][0]]['private_ipv4'] }}"
+      args: 
+        chdir: "/tmp/"
+    - name: Join Consul
+      shell: "consul join {{ groups['servers'][0] }}"
+      args: 
+        chdir: "/tmp/"
+    - name: Install Nomad
+      shell: "/tmp/installation/nomad/install_nomad.sh server"
+      args: 
+        chdir: "/tmp/"

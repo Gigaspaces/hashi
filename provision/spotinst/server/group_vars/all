@@ -1,0 +1,21 @@
+key_name: <key_name>
+aws_region: us-east-2
+vpc_id: vpc-b9c035d0
+security_group: sg-06aeaf527dd4e5f28
+ami_id: ami-02bcbb802e03574ba
+instance_types:
+    - m4.xlarge
+    - m5.xlarge
+on_demand_instance_type: t2.nano
+
+availability_zone_region: us-east-2a
+availability_zone_subnet_id: subnet-c4c537ad
+
+### Spotinst configuration
+product_type: Linux/UNIX
+
+spotinst_group_name: Nomad Server
+spotinst_min: 3
+spotinst_target: 3
+spotinst_max: 3
+

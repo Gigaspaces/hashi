@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+export PEM_LOCATION="<full path to PEM file>"
