@@ -10,8 +10,9 @@ if [[ "$MODE" != "server" ]] && [[ "$MODE" != "client" ]]; then
 fi
 
 CONSUL_VERSION=1.6.1
-curl -sSL https://releases.hashicorp.com/consul/${CONSUL_VERSION}/consul_${CONSUL_VERSION}_linux_amd64.zip > /tmp/consul.zip
-unzip /tmp/consul.zip
+cd /tmp
+curl -sSL https://releases.hashicorp.com/consul/${CONSUL_VERSION}/consul_${CONSUL_VERSION}_linux_amd64.zip -o consul.zip
+unzip consul.zip
 sudo install consul /usr/bin/consul
 
 sudo mkdir -p /etc/consul.d/
